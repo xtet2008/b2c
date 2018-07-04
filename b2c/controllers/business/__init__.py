@@ -1,11 +1,11 @@
 # -*- coding:utf8 -*-
 
 from flask import Blueprint
-from b2c.core.log import get_logger
+# from b2c.core.log import get_logger
 
 b_bp = Blueprint('b', __name__)
 
-logger = get_logger()
+# logger = get_logger()
 
 #
 # def validate_arg(validator):

@@ -2,7 +2,7 @@ import os
 from flask import Flask
 
 from b2c.extensions import db
-from b2c.core import log
+# from b2c.core import log
 
 
 DEFAULT_APP_NAME = 'b2c'
@@ -42,11 +42,11 @@ def create_app(config=None):
         CORS(app, resources={r"/smart-piano/admin_api/*": {"origins": "*"}})
         CORS(app, resources={r"/smart-piano/web/*": {"origins": "*"}})
 
-    log.debug_log(' * Runing in %(ENV)s environment' % app.config)
+    # log.debug_log(' * Runing in %(ENV)s environment' % app.config)
 
-    @app.teardown_request
-    def shutdown_session(exception=None):
-        db.session.remove()
+    # @app.teardown_request
+    # def shutdown_session(exception=None):
+    #     db.session.remove()
 
     return app
 
@@ -68,15 +68,3 @@ def configure_blueprints(app):
     app.register_blueprint(a_bp, url_prefix='/b2c/a')
     app.register_blueprint(b_bp, url_prefix='/b2c/b')
     app.register_blueprint(c_bp, url_prefix='/b2c/c')
-
-
-# app = Flask(__name__)
-#
-#
-# @app.route('/')
-# def hello_world():
-#     return 'Hello World!'
-
-
-if __name__ == '__main__':
-    app.run()
