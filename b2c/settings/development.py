@@ -3,7 +3,7 @@
 from b2c.settings.base import *
 
 ENV = 'development'
-DEBUG = True
+# DEBUG = True
 
 SQLALCHEMY_DATABASE_URI = 'mysql://root:abcd1234@xtet.xyz/b2c'
 
