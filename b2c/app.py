@@ -2,7 +2,7 @@ import os
 from flask import Flask
 
 from b2c.extensions import db
-# from b2c.core import log
+from b2c.core import log
 
 
 DEFAULT_APP_NAME = 'b2c'
@@ -44,9 +44,9 @@ def create_app(config=None):
 
     # log.debug_log(' * Runing in %(ENV)s environment' % app.config)
 
-    # @app.teardown_request
-    # def shutdown_session(exception=None):
-    #     db.session.remove()
+    @app.teardown_request
+    def shutdown_session(exception=None):
+        db.session.remove()
 
     return app
 

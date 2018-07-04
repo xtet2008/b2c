@@ -6,11 +6,11 @@ from b2c import create_app
 
 from flask_migrate import Migrate, MigrateCommand
 
-# from b2c.extensions import db
+from b2c.extensions import db
 
 app = create_app()
 manager = Manager(app)
-# migrate = Migrate(app, db)
+migrate = Migrate(app, db)
 # app will use the actual `REMOTE_ADDR` when running being proxy such as nginx
 # app.wsgi_app = ProxyFix(app.wsgi_app)
 
